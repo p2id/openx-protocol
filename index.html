@@ -31,6 +31,10 @@
       line-height:1.55;
     }
     a{color:inherit;text-decoration:none}
+    .skip-link{position:fixed;top:1rem;left:1rem;z-index:100;padding:.75rem 1rem;border-radius:999px;background:var(--ink);color:#fff;font-weight:800;transform:translateY(calc(-100% - 1rem))}
+    .skip-link:focus{transform:translateY(0)}
+    :focus-visible{outline:3px solid var(--lime);outline-offset:4px}
+    #main-content{scroll-margin-top:5rem}
     .wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
     nav{
       position:sticky;top:0;z-index:20;
@@ -175,8 +179,9 @@
   </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
-<nav>
+<nav aria-label="Primary">
   <div class="wrap nav">
     <a class="brand" href="#">
       <span class="mark"></span>
@@ -192,6 +197,7 @@
   </div>
 </nav>
 
+<main id="main-content" tabindex="-1">
 <header class="hero">
   <div class="wrap hero-grid">
     <div>
@@ -368,6 +374,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <footer>
   <div class="wrap footer">
